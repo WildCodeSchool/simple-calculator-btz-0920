@@ -26,9 +26,18 @@
         case "+":
           result = firstValue + secondValue;
           break;
-
-        default:
+        case "-":
           result = firstValue - secondValue;
+          break;
+        case "/":
+          result = firstValue / secondValue;
+          break;
+        case "*":
+          result = firstValue * secondValue;
+          break;
+        default:
+          // result = "Invalid operator";
+          throw new Error("Invalid operator");
       }
 
       console.log(result);
