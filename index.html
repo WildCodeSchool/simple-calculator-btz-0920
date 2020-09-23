@@ -20,7 +20,18 @@
       // firstValue = parseInt(firstValue);
       // secondValue = parseInt(secondValue);
 
-      console.log({ result: firstValue + secondValue });
+      let result;
+
+      switch (operand) {
+        case "+":
+          result = firstValue + secondValue;
+          break;
+
+        default:
+          result = firstValue - secondValue;
+      }
+
+      console.log(result);
     </script>
   </body>
 </html>
