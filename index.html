@@ -10,17 +10,55 @@
     <main class="container">
       <h1>Simple Calculator</h1>
 
-      <form>
+      <form id="form">
         <input type="number" id="first" />
         <select name="operand" id="operand">
-          <option value="add">+</option>
-          <option value="minus">-</option>
-          <option value="multiply">X</option>
-          <option value="divide">/</option>
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="*">X</option>
+          <option value="/">/</option>
         </select>
         <input type="number" id="second" />
-        <button class="btn btn-primary">=</button>
+        <button class="btn btn-primary" id="calculate">=</button>
       </form>
+      <h1 class="mt-5" id="output"></h1>
     </main>
+
+    <script>
+      // const form = document.getElementById("form");
+      const form = document.querySelector("#form");
+      const btn = document.querySelector("#calculate");
+
+      // btn.addEventListener("click", () => {
+      btn.addEventListener("click", function () {
+        const first = document.querySelector("#first");
+        const second = document.querySelector("#second");
+        const operand = document.querySelector("#operand");
+        const output = document.querySelector("#output");
+        let result;
+        switch (operand.value) {
+          case "+":
+            result = +first.value + +second.value;
+            break;
+          case "-":
+            result = +first.value - +second.value;
+            break;
+          case "/":
+            result = +first.value / +second.value;
+            break;
+          case "*":
+            result = +first.value * +second.value;
+            break;
+          default:
+            throw new Error("Invalid operator");
+        }
+
+        output.textContent = result;
+      });
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+      });
+    </script>
   </body>
 </html>
